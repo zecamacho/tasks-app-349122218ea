@@ -1,8 +1,8 @@
 import { Input } from "@/components/inputs";
 import { Col } from "@/components/layout";
+import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import { Button, Typography } from "@mui/material";
 import { Control, SubmitHandler, UseFormReturn } from "react-hook-form";
-import { Surface } from "./surface";
 import { TaskFormSchema } from "./task-form.schema";
 
 type TaskFormProps = {
@@ -23,7 +23,7 @@ export const TaskForm = ({
   hideSubmit = false,
 }: TaskFormProps) => {
   return (
-    <Surface component="form" onSubmit={handleSubmit(onSubmit)}>
+    <Col component="form" onSubmit={handleSubmit(onSubmit)}>
       {title && <Typography variant="h6">{title}</Typography>}
       <Col gap={4}>
         <Input
@@ -37,14 +37,19 @@ export const TaskForm = ({
           label="Description"
           name="taskDescription"
           control={control}
-          //   inputProps={{ multiline: true }}
+          inputProps={{ multiline: true }}
         />
         {!hideSubmit && (
-          <Button variant="contained" type="submit">
+          <Button
+            variant="contained"
+            type="submit"
+            sx={{ maxWidth: "50%" }}
+            endIcon={<TrendingFlatIcon />}
+          >
             {submitLabel}
           </Button>
         )}
       </Col>
-    </Surface>
+    </Col>
   );
 };

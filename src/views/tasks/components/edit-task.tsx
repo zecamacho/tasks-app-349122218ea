@@ -31,12 +31,11 @@ export const EditTask = (task: Task) => {
         ...task,
         name: updatedTask.taskName,
         description: updatedTask.taskDescription,
-      })
+      }),
     );
     setOpen(false);
   };
 
-  console.log("[EDIT TASK]", task);
   return (
     <Fragment>
       <IconButton onClick={() => setOpen(true)}>
@@ -65,7 +64,7 @@ export const EditTask = (task: Task) => {
             <CloseIcon />
           </IconButton>
         </DialogTitle>
-        <DialogContent dividers>
+        <DialogContent dividers sx={{ py: 4 }}>
           <TaskForm {...form} onSubmit={onEditTask} hideSubmit />
         </DialogContent>
         <DialogActions autoFocus sx={{ py: 2, px: 4 }}>

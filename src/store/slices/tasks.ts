@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
+import { mock } from "./tasks.mock";
 
 export type Task = {
   id: string;
@@ -12,9 +13,7 @@ export type TaskState = Task[];
 
 export const tasksSlice = createSlice({
   name: "tasks",
-  initialState: [
-    { name: "asdasdas", description: "adsasd", completed: false },
-  ] as TaskState,
+  initialState: [...mock] as TaskState,
   reducers: {
     addTask: (state, { payload: task }: PayloadAction<Omit<Task, "id">>) => {
       state.push({ ...task, id: uuidv4() });
@@ -27,7 +26,7 @@ export const tasksSlice = createSlice({
     },
     toggleComplete: (state, { payload: task }: PayloadAction<Task>) => {
       return state.map((t) =>
-        t.id === task.id ? { ...t, completed: !t.completed } : t
+        t.id === task.id ? { ...t, completed: !t.completed } : t,
       );
     },
   },

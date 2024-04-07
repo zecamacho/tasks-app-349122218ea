@@ -29,9 +29,10 @@ export const MuiInputBase: MuiInputBaseOverride = {
       borderRadius: 4,
       position: "relative",
       border: "1px solid",
-      borderColor: theme.palette.grey["400"],
+      borderColor: theme.palette.input,
       fontSize: 16,
       padding: "10px 12px",
+      height: "1rem",
       transition: theme.transitions.create([
         "border-color",
         "background-color",

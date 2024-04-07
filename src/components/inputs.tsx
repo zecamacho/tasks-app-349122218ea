@@ -5,13 +5,7 @@ import {
   InputLabel,
   InputLabelProps as MuiLabelProps,
 } from "@mui/material";
-import {
-  Control,
-  FieldValues,
-  Path,
-  UseControllerProps,
-  useController,
-} from "react-hook-form";
+import { Control, FieldValues, Path, useController } from "react-hook-form";
 
 type InputProps<T extends FieldValues> = {
   inputProps?: InputBaseProps;
@@ -28,9 +22,8 @@ export const Input = <T extends FieldValues>({
   labelProps,
   label,
 }: InputProps<T>) => {
+  const { field } = useController({ name, control });
 
-  const { field, fieldState } = useController({ name, control });
-  
   return (
     <FormControl variant="standard">
       <InputLabel shrink htmlFor="task-field" {...labelProps}>

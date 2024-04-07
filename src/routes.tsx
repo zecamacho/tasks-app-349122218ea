@@ -1,7 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Layout } from "./components/layout";
-import { Tasks } from "./views/tasks/tasks";
+import { TaskList } from "./views/tasks/task-list";
 import { Users } from "./views/users/users";
+import { UserDetails } from "./views/users/user-details";
 
 export const router = createBrowserRouter([
   {
@@ -10,11 +11,15 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/tasks",
-        element: <Tasks />,
+        element: <TaskList />,
       },
       {
         path: "/users",
         element: <Users />,
+      },
+      {
+        path: "/users/:id",
+        element: <UserDetails />,
       },
     ],
   },

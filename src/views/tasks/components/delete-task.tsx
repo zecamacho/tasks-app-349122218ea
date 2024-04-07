@@ -51,16 +51,14 @@ export const DeleteTask = (task: Task) => {
             <CloseIcon />
           </IconButton>
         </DialogTitle>
-        <DialogContent dividers>
+        <DialogContent dividers sx={{ py: 4 }}>
           <Typography>
             This action cannot be undone. Deleting this record will remove it
             permanently from the list.
           </Typography>
         </DialogContent>
         <DialogActions autoFocus sx={{ py: 2, px: 4 }}>
-          <Button variant="contained" onClick={() => setOpen(false)}>
-            Cancel
-          </Button>
+          <Button onClick={() => setOpen(false)}>Cancel</Button>
           <Button
             variant="contained"
             color="error"
